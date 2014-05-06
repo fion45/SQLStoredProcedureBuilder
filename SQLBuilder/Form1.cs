@@ -763,7 +763,7 @@ namespace SQLBuilder
                         defValue = "00" + defValue;
                         defValue = "0x" + defValue.Substring(defValue.Length - 2, 2);
                     }
-                    sb.Append("\t@" + mc.columName + " " + mc.dbType + (mc.dLen == 0 ? "" : "(" + mc.dLen.ToString() + ")") + " = " + defValue + ",\r\n");
+                    sb.Append("\t@" + mc.columName + " " + mc.dbType + (mc.dLen == 0 ? "" : "(" + (mc.dLen == -1 ? "MAX" : mc.dLen.ToString()) + ")") + " = " + defValue + ",\r\n");
                 }
             }
             if (sb.Length == 0)
